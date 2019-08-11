@@ -21,9 +21,10 @@ function App() {
     'dCAxIDAgUgo+PgpzdGFydHhyZWYKNDkyCiUlRU9G';
 
   function writeFile(fullFile, data) {
+    const fs = require("fs");
+
     if (window.File && window.FileReader && window.FileList && window.Blob) {
-      // Great success! All the File APIs are supported.
-      alert('can write');
+      console.log(fullFile);
     } else {
       alert('The File APIs are not fully supported in this browser.');
     }
@@ -33,7 +34,7 @@ function App() {
     <div className="App">
       
       <button onClick={() => {
-        const fullFile = '../public/tmp/doc/file' + Date.now();
+        const fullFile = '../public/tmp/doc/file_' + Date.now();
         
         writeFile(fullFile, meta+pdfData);
       }}>
